@@ -39,6 +39,11 @@ server.use(function(req, res, next) {
 require('./routes/sample')(server, config);
 
 
+server.get(/\/docs\/?.*/, restify.serveStatic({
+    directory: './build/docs',
+    default: 'index.html'
+}));
+
 exports.startServer = function (port) {
     if (port === undefined){
         port = config.server.port;
