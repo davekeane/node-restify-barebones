@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:blacha/node-restify-barebones.git"
   },
   "dependencies": {
     "moment": "~2.5.1",
@@ -20,6 +20,7 @@
     "grunt-jasmine-node": "~0.1.0",
     "grunt-apidoc": "~0.3.0",
     "grunt-contrib-clean": "~0.5.0",
+    "grunt-nodemon": "~0.2.0",
     "grunt-cli": "~0.1.13"
   },
   "engine": "node",
