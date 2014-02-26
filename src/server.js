@@ -56,3 +56,8 @@ exports.getDatabase = function() {
 exports.getLogger = function() {
     return log;
 };
+
+// Start the server if this file was executed.
+if (require.main === module){
+    exports.startServer();
+}
