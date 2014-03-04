@@ -1,10 +1,26 @@
 describe('Sample', function () {
     'use strict';
 
-    var PORT = '33445',
-        request = require('request');
+    process.env.NODE_ENV = 'test';
 
-    require('../src/server').startServer(PORT);
+    var PORT = null;
+    var request = require('request');
+    var server = require('../src/server');
+
+    var log = server.getLogger();
+
+    beforeEach(function(done){
+        if (PORT === null) {
+            server.startServer(function(server){
+
+                PORT = server.address().port;
+                log.warn('SERVER %d', PORT);
+                done();
+            });
+        }else {
+            done();
+        }
+    });
 
     it('should pass a test', function () {
         expect(1).toBe(1);

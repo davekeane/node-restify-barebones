@@ -37,7 +37,7 @@ module.exports = {
     test: {
         server: {
             host:'localhost',
-            port:'33445'
+            port:0
         },
         database: {
             host: 'localhost',

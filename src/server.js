@@ -44,13 +44,16 @@ server.get(/\/docs\/?.*/, restify.serveStatic({
     default: 'index.html'
 }));
 
-exports.startServer = function (port) {
-    if (port === undefined){
-        port = config.server.port;
-    }
+exports.startServer = function (callback) {
+
+    var port = config.server.port;
 
     server.listen(port, config.server.host, function () {
         log.debug('%s server listening at %s', server.name, server.url);
+
+        if (typeof callback === 'function'){
+            callback(server);
+        }
     });
 };
 
