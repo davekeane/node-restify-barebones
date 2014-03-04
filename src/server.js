@@ -35,11 +35,12 @@
 
     server.use(function(req, res, next) {
         req.db = db.collection(config.database.name);
+        req.config = config;
         next();
     });
 
     // Load in the routes
-    require('./routes/sample')(server, config);
+    require('./routes/sample')(server);
 
 
     server.get(/\/docs\/?.*/, restify.serveStatic({
