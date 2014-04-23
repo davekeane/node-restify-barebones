@@ -10,6 +10,8 @@ module.exports = (grunt) ->
     grunt.initConfig
         pkg: grunt.file.readJSON('package.json'),
         jshint:
+            options:
+                jshintrc: '.jshintrc'
             src: allPath
 
         jasmine_node:
